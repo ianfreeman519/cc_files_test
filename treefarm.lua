@@ -119,7 +119,7 @@ end
 
 -- move to the next (left) row from the turtle's perspective
 local function move_to_left_row()
-	move_foward(1)
+	move_forward(1)
 	turtle.turnLeft()
 	move_forward(3)
 	turtle.turnLeft()
