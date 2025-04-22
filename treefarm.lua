@@ -151,7 +151,7 @@ end
 -- the distance to the start is 3 (for the first row) + 6 for every subsequent double row
 local function return_to_chest()
 	local distance_to_start = 3 + (PARAMS.double_rows - 1) * 6
-	move_forward()
+	move_forward(1)
 	turtle.turnRight()
 	move_forward(distance_to_start)
 	turtle.turnLeft()
