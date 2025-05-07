@@ -85,14 +85,15 @@ local function do_branch()
     turtle.turnLeft()
     mine_tunnel(32)
     return_to_main(32)
-    turtle.turnRight()
+    turtle.turnRight()  -- Face forward again
 
-    -- Back to center
+    -- Right T tunnel
     turtle.turnRight()
     mine_tunnel(32)
     return_to_main(32)
-    turtle.turnLeft()
+    turtle.turnLeft()  -- Face forward again
 end
+
 
 -------------------------
 -- PROGRAM STARTS HERE --
