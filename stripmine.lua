@@ -1,6 +1,6 @@
 -- Title
 local title = [[
-Stripper by Trint66
+Strinp mipe by Trint66
 ]]
 
 -- Helper: Turn around
@@ -94,7 +94,6 @@ local function do_branch()
     turtle.turnLeft()  -- Face forward again
 end
 
-
 -------------------------
 -- PROGRAM STARTS HERE --
 -------------------------
@@ -123,18 +122,25 @@ end
 write("Number of T branches to dig: ")
 local branch_count = tonumber(read())
 
+-- Initialize distance tracking
+local distance_from_chest = 0
+
 -- Begin mining loop
 for i = 1, branch_count do
     do_branch()
-    -- Back up 2 blocks to start new branch position
+    
+    -- Move forward 2 blocks for spacing
     move_forward(2)
-    -- Unload before next branch
+    distance_from_chest = distance_from_chest + 5  -- 3 for T + 2 spacing
+    
+    -- Return to chest and unload
     turn_around()
-    move_forward(3 * i + 2 * (i - 1)) -- Go back to chest
+    move_forward(distance_from_chest)
     unload()
+    
+    -- Go back to working position
     turn_around()
-    move_forward(3 * i + 2 * (i - 1)) -- Return to work site
-    turn_around()
+    move_forward(distance_from_chest)
 end
 
 print("Finished mining.")
