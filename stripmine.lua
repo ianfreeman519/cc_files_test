@@ -9,9 +9,12 @@ local function turn_around()
     turtle.turnRight()
 end
 
--- Helper: Move forward with digging
+-- Helper: Move forward with digging (including above)
 local function move_forward(n)
     for i = 1, n do
+        -- Dig the block above before attempting to move
+        turtle.digUp()
+
         while not turtle.forward() do
             if turtle.detect() then
                 turtle.dig()
@@ -21,6 +24,7 @@ local function move_forward(n)
         end
     end
 end
+
 
 -- Helper: Move up with digging
 local function move_up(n)
